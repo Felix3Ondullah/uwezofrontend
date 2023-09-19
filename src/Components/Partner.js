@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// import axios from 'axios';
 
 function Partner() {
     const [partnerData, setPartnerData] = useState({
@@ -118,53 +119,53 @@ function Partner() {
                 </div>
 
                 <div className="mb-4">
-                    <label htmlFor="first_name" className="block text-sm font-medium">
+                    <label htmlFor="document_number" className="block text-sm font-medium">
                         Document Number
                     </label>
                     <input
-                        type="text"
-                        id="first_name"
-                        name="first_name"
-                        value={partnerData.first_name}
+                        type="number"
+                        id="document_number"
+                        name="document_number"
+                        value={partnerData.document_number}
                         onChange={handleChange}
                         className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 rounded-md"
                     />
                 </div>
                 <div className="mb-4">
-                    <label htmlFor="first_name" className="block text-sm font-medium">
-                        First Name
+                    <label htmlFor="msisdn" className="block text-sm font-medium">
+                        Msisdn
                     </label>
                     <input
-                        type="text"
-                        id="first_name"
-                        name="first_name"
-                        value={partnerData.first_name}
+                        type="number"
+                        id="msisdn"
+                        name="msisdn"
+                        value={partnerData.msisdn}
                         onChange={handleChange}
                         className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 rounded-md"
                     />
                 </div>
                 <div className="mb-4">
-                    <label htmlFor="first_name" className="block text-sm font-medium">
-                        First Name
+                    <label htmlFor="email" className="block text-sm font-medium">
+                        Email
                     </label>
                     <input
-                        type="text"
-                        id="first_name"
-                        name="first_name"
-                        value={partnerData.first_name}
+                        type="text" // Keep it as "text" for email input
+                        id="email" // Change the id to match the field name
+                        name="email"
+                        value={partnerData.email}
                         onChange={handleChange}
                         className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 rounded-md"
                     />
                 </div>
                 <div className="mb-4">
-                    <label htmlFor="first_name" className="block text-sm font-medium">
-                        First Name
+                    <label htmlFor="document" className="block text-sm font-medium">
+                        Document
                     </label>
                     <input
                         type="text"
-                        id="first_name"
-                        name="first_name"
-                        value={partnerData.first_name}
+                        id="document"
+                        name="document"
+                        value={partnerData.document}
                         onChange={handleChange}
                         className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 rounded-md"
                     />
