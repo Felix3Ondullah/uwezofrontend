@@ -79,7 +79,7 @@ function Partner() {
                             name="first_name"
                             value={partnerData.first_name}
                             onChange={handleChange}
-                            className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 rounded-md"
+                            className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 rounded-md text-black bg-white"
                         />
                     </div>
                     <div className="mb-4">
@@ -92,7 +92,7 @@ function Partner() {
                             name="middle_name"
                             value={partnerData.middle_name}
                             onChange={handleChange}
-                            className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 rounded-md"
+                            className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 rounded-md text-black bg-white"
                         />
                     </div>
                     <div className="mb-4">
@@ -105,7 +105,7 @@ function Partner() {
                             name="last_name"
                             value={partnerData.last_name}
                             onChange={handleChange}
-                            className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 rounded-md"
+                            className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 rounded-md text-black bg-white"
                         />
                     </div>
                     <div className="mb-4">
@@ -149,7 +149,7 @@ function Partner() {
                             name="document_number"
                             value={partnerData.document_number}
                             onChange={handleChange}
-                            className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 rounded-md"
+                            className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 rounded-md text-black bg-white"
                         />
                     </div>
                     <div className="mb-4">
@@ -175,7 +175,7 @@ function Partner() {
                             name="email"
                             value={partnerData.email}
                             onChange={handleChange}
-                            className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 rounded-md"
+                            className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 rounded-md text-black bg-white"
                         />
                     </div>
                     <div className="mb-4">
