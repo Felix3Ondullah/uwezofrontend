@@ -5,9 +5,10 @@ import Home from './Components/Home';
 import Contracts from './Components/Contracts';
 import Driver from './Components/Driver';
 import MobilePayments from './Components/MobilePayment';
-import Partner from './Components/Partner';
-import PartnerDetails from './Components/PartnerDetails';
-import PartnerList from './Components/PartnerList';
+import Partner from './Components/Partners/Partner';
+import PartnerList from './Components/Partners/PartnerList';
+import PartnerDetails from './Components/Partners/PartnerDetails';
+
 
 function App() {
   return (
@@ -21,8 +22,8 @@ function App() {
             <Route path="/mobilepayment" element={<MobilePayments />} />
             <Route path="/driver" element={<Driver />} />
             <Route path="/partner" element={<Partner />} />
-            <Route path="/" exact component={PartnerList} />
-            <Route path="/details/:id" component={PartnerDetails} />
+            <Route path="/partnerlist" element={<PartnerList />} />
+            <Route path="/partnerdetails/:id" element={<PartnerDetails />} />
           </Routes>
         </div>
       </div>
