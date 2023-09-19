@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Sidebar from './Components/Sidebar';
+import Home from './Components/Home';
+import Contracts from './Components/Contracts';
+import Driver from './Components/Driver';
+import MobilePayments from './Components/MobilePayment';
+import Partner from './Components/Partner';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="flex">
+        <Sidebar />
+        <div className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/contracts" element={<Contracts />} />
+            <Route path="/mobilepayment" element={<MobilePayments />} />
+            <Route path="/driver" element={<Driver />} />
+            <Route path="/partner" element={<Partner />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
 
