@@ -35,7 +35,7 @@ function PartnerReg() {
 
         console.log('Sending data:', partnerData);
 
-        // Send a POST request to your partner API
+        // Sending a POST request to partner API
         fetch('http://35.227.55.58:8002/partner/', {
             method: 'POST',
             headers: {
