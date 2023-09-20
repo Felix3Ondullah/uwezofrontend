@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Partner() {
+function PartnerReg() {
     const navigate = useNavigate();
 
     const [partnerData, setPartnerData] = useState({
@@ -205,4 +205,4 @@ function Partner() {
     );
 }
 
-export default Partner;
+export default PartnerReg;
