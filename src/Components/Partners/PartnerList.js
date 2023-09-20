@@ -22,7 +22,7 @@ function PartnerList() {
   }, []);
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen p-6"> {/* Set min-h-screen for full page coverage */}
+    <div className="bg-gray-900 text-white min-h-screen p-6">
       <h2 className="text-2xl font-semibold mb-4">Partner List</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {partners.map((partner) => (
@@ -34,18 +34,18 @@ function PartnerList() {
             <p className="text-gray-600">Middle Name: {partner.middle_name}</p>
             <p className="text-gray-600">Last Name: {partner.last_name}</p>
             <p className="text-gray-600">Email: {partner.email}</p>
-
             {/* Add more details as needed */}
           </div>
         ))}
       </div>
       <div className="mt-4">
-        <button
-          type="submit"
-          className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
-        >
-          Register Partner
-        </button>
+        <Link to="/partnerreg">
+          <button
+            className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+          >
+            Register Partner
+          </button>
+        </Link>
       </div>
     </div>
   );
