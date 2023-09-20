@@ -54,7 +54,7 @@ function PartnerUpdate() {
 
         console.log('Sending updated data:', partnerData);
 
-        // Send a PUT request to update partner details
+        // Sending a PUT request to update partner details
         fetch(`http://35.227.55.58:8002/partner/${id}/`, {
             method: 'PUT',
             headers: {
