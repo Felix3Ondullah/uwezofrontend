@@ -24,20 +24,39 @@ function PartnerList() {
   return (
     <div className="bg-gray-900 text-white min-h-screen p-6">
       <h2 className="text-2xl font-semibold mb-4">Partner List</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {partners.map((partner) => (
-          <div key={partner.id} className="bg-white p-4 rounded-md shadow-md">
-            <Link to={`/partnerdetails/${partner.id}`} className="text-blue-500 hover:underline">
-              <h3 className="text-lg font-semibold">{partner.first_name} {partner.last_name}</h3>
-            </Link>
-            <p className="text-gray-600">First Name: {partner.first_name}</p>
-            <p className="text-gray-600">Middle Name: {partner.middle_name}</p>
-            <p className="text-gray-600">Last Name: {partner.last_name}</p>
-            <p className="text-gray-600">Email: {partner.email}</p>
-            {/* Add more details as needed */}
-          </div>
-        ))}
-      </div>
+      <table className="min-w-full table-auto border-collapse border border-gray-300">
+        <thead>
+          <tr>
+            <th className="text-left border border-gray-300 px-4 py-2">Name</th>
+            <th className="text-left border border-gray-300 px-4 py-2">Email</th>
+            <th className="text-left border border-gray-300 px-4 py-2">Msisdn</th>
+            <th className="text-left border border-gray-300 px-4 py-2">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {partners.map((partner) => (
+            <tr
+              key={partner.id}
+              className="bg-white border border-gray-300"
+            >
+              <td className="text-lg text-gray-600 border border-gray-300 px-4 py-2">
+                {partner.first_name} {partner.middle_name} {partner.last_name}
+              </td>
+              <td className="text-lg text-gray-600 border border-gray-300 px-4 py-2">
+                <span className="text-blue-500">{partner.email}</span>
+              </td>
+              <td className="text-lg text-gray-600 border border-gray-300 px-4 py-2">
+                <span className="text-blue-500">{partner.msisdn}</span>
+              </td>
+              <td className="border border-gray-300 px-4 py-2">
+                <Link to={`/partnerdetails/${partner.id}`} className="text-blue-500 hover:underline">
+                  View
+                </Link>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
       <div className="mt-4">
         <Link to="/partnerreg">
           <button
