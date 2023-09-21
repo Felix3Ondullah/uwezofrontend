@@ -16,7 +16,6 @@ function DriverReg() {
     document: '',
     status: 'active',
     partner: '',
-    id_document: null,
   });
 
   const [partnerOptions, setPartnerOptions] = useState([]);
@@ -37,8 +36,8 @@ function DriverReg() {
     // Fetching partners from API with headers
     fetch('http://35.227.55.58:8002/partner/', {
       headers: {
-        'Content-Type': 'application/json', 
-     
+        'Content-Type': 'application/json',
+
       },
     })
       .then((response) => response.json())
@@ -55,29 +54,22 @@ function DriverReg() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-  
+
     // If the name is 'partner', parse the value as an integer
     const parsedValue = name === 'partner' ? parseInt(value, 10) : value;
-  
+
     setDriverData({
       ...driverData,
       [name]: parsedValue,
     });
   };
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setDriverData({
-      ...driverData,
-      id_document: file,
-    });
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  
+
     const formData = new FormData();
-  
+
     formData.append('first_name', driverData.first_name);
     formData.append('middle_name', driverData.middle_name);
     formData.append('last_name', driverData.last_name);
@@ -88,18 +80,18 @@ function DriverReg() {
     formData.append('email', driverData.email);
     formData.append('document', driverData.document);
     formData.append('status', driverData.status);
-    
+
     // Append the 'partner' field only if it's not an empty string
     if (driverData.partner !== '') {
       formData.append('partner', driverData.partner);
     }
-  
+
     if (driverData.id_document) {
       formData.append('id_document', driverData.id_document);
     }
-  
+
     console.log('Sending data:', formData);
-  
+
     // Sending a POST request to driver API with headers
     fetch('http://35.227.55.58:8002/driver/', {
       method: 'POST',
@@ -112,7 +104,7 @@ function DriverReg() {
         if (response.ok) {
           // Handle success
           console.log('Driver created successfully');
-  
+
           // Redirect to the driver list page
           navigate('/driverlist');
         } else {
@@ -127,7 +119,7 @@ function DriverReg() {
         console.error('Fetch Error:', error);
       });
   };
-  
+
   return (
     <div className="bg-gray-900 text-white min-h-screen p-6">
       <h2 className="text-2xl font-semibold mb-4">Driver Registration</h2>
@@ -274,51 +266,35 @@ function DriverReg() {
             </select>
           </div>
           <div className="mb-4">
-  <label htmlFor="partner" className="block text-sm font-medium">
-    Partner
-  </label>
-  <select
-  id="partner"
-  name="partner"
-  value={driverData.partner}
-  onChange={handleChange}
-  className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 rounded-md text-black bg-white"
-  style={{ color: 'black', backgroundColor: 'white' }}
->
-  <option value="" className="text-black bg-white">Select a partner</option>
-  {partnerOptions.map((option) => (
-    <option
-      key={option.value}
-      value={option.value}
-      style={{
-        color: 'black', 
-        backgroundColor: 'white'
-      }}
-      className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
-    >
-      {option.label}
-    </option>
-  ))}
-</select>
-
-</div>
-
-          <div className="mb-4">
-            <label htmlFor="id_document" className="block text-sm font-medium">
-              ID Document (PDF or Image)
+            <label htmlFor="partner" className="block text-sm font-medium">
+              Partner
             </label>
-            <input
-              type="file"
-              id="id_document"
-              name="id_document"
-              onChange={handleFileChange}
-              accept=".pdf, image/*"
+            <select
+              id="partner"
+              name="partner"
+              value={driverData.partner}
+              onChange={handleChange}
               className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 rounded-md text-black bg-white"
-            />
-            <p className="text-sm text-gray-500 mt-2">
-              Upload an ID document (PDF or image, max 5MB).
-            </p>
+              style={{ color: 'black', backgroundColor: 'white' }}
+            >
+              <option value="" className="text-black bg-white">Select a partner</option>
+              {partnerOptions.map((option) => (
+                <option
+                  key={option.value}
+                  value={option.value}
+                  style={{
+                    color: 'black',
+                    backgroundColor: 'white'
+                  }}
+                  className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
+                >
+                  {option.label}
+                </option>
+              ))}
+            </select>
+
           </div>
+
         </div>
         <div className="mt-4">
           <button

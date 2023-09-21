@@ -95,7 +95,7 @@ function PartnerDetails() {
 
       <div className="mt-4">
         <Link
-          to={`/edit/${id}`}
+          to={`/edit/partner/${id}`} // Updated path for partner update
           className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 mr-2"
           style={{ textDecoration: 'none' }}
         >
