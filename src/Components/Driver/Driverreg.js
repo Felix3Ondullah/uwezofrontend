@@ -37,8 +37,8 @@ function DriverReg() {
     // Fetching partners from API with headers
     fetch('http://35.227.55.58:8002/partner/', {
       headers: {
-        'Content-Type': 'application/json', // Set the content type as needed
-        // Add any other headers you need here
+        'Content-Type': 'application/json', 
+     
       },
     })
       .then((response) => response.json())
@@ -274,30 +274,35 @@ function DriverReg() {
             </select>
           </div>
           <div className="mb-4">
-            <label htmlFor="partner" className="block text-sm font-medium">
-              Partner
-            </label>
-            <select
-              id="partner"
-              name="partner"
-              value={driverData.partner}
-              onChange={handleChange}
-              className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 rounded-md text-black bg-white"
-              style={{ color: 'black', backgroundColor: 'white' }}
-            >
-              <option value="" className="text-black bg-white">Select a partner</option>
-              {partnerOptions.map((option) => (
-                <option
-                  key={option.value}
-                  value={option.value}
-                  style={{ color: 'black', backgroundColor: 'white' }}
-                  className="text-black bg-white border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
-                >
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </div>
+  <label htmlFor="partner" className="block text-sm font-medium">
+    Partner
+  </label>
+  <select
+  id="partner"
+  name="partner"
+  value={driverData.partner}
+  onChange={handleChange}
+  className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 rounded-md text-black bg-white"
+  style={{ color: 'black', backgroundColor: 'white' }}
+>
+  <option value="" className="text-black bg-white">Select a partner</option>
+  {partnerOptions.map((option) => (
+    <option
+      key={option.value}
+      value={option.value}
+      style={{
+        color: 'black', 
+        backgroundColor: 'white'
+      }}
+      className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
+    >
+      {option.label}
+    </option>
+  ))}
+</select>
+
+</div>
+
           <div className="mb-4">
             <label htmlFor="id_document" className="block text-sm font-medium">
               ID Document (PDF or Image)
