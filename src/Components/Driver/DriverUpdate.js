@@ -35,7 +35,7 @@ function DriverUpdate() {
     ];
 
     useEffect(() => {
-        // Fetch driver details using the provided API endpoint
+        // Fetch driver details using the driver API endpoint
         fetch(`http://35.227.55.58:8002/driver/${id}/`)
             .then((response) => {
                 if (!response.ok) {
@@ -75,7 +75,7 @@ function DriverUpdate() {
     const handleChange = (e) => {
         const { name, value } = e.target;
 
-        // If the name is 'partner', parse the value as an integer
+        // If the name is 'partner', this parses the value as an integer
         const parsedValue = name === 'partner' ? parseInt(value, 10) : value;
 
         setDriverData({
@@ -100,7 +100,7 @@ function DriverUpdate() {
         formData.append('document', driverData.document);
         formData.append('status', driverData.status);
 
-        // Append the 'partner' field only if it's not an empty string
+
         if (driverData.partner !== '') {
             formData.append('partner', driverData.partner);
         }
@@ -115,7 +115,7 @@ function DriverUpdate() {
         fetch(`http://35.227.55.58:8002/driver/${id}/`, {
             method: 'PUT',
             headers: {
-                // Add any headers you need for the driver update request
+        
             },
             body: formData,
         })

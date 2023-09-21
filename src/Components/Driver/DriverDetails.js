@@ -5,6 +5,7 @@ function DriverDetails() {
     const { id } = useParams();
     const navigate = useNavigate();
     const [driver, setDriver] = useState({});
+    const [partner, setPartner] = useState({});
 
     useEffect(() => {
         // Fetching driver details from API endpoint
@@ -17,6 +18,23 @@ function DriverDetails() {
             })
             .then((data) => {
                 setDriver(data);
+                // Check if a partner ID is available in driver data
+                if (data.partner) {
+                    // Fetch partner details based on partner ID
+                    fetch(`http://35.227.55.58:8002/partner/${data.partner}/`)
+                        .then((response) => {
+                            if (!response.ok) {
+                                throw  Error('Failed to fetch partner details');
+                            }
+                            return response.json();
+                        })
+                        .then((partnerData) => {
+                            setPartner(partnerData);
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        });
+                }
             })
             .catch((error) => {
                 console.error(error);
@@ -51,68 +69,79 @@ function DriverDetails() {
     };
 
     return (
-        <div className="bg-gray-900 text-white min-h-screen p-6">
-            <h2 className="text-2xl font-semibold mb-4">Driver Details</h2>
-            <div className="bg-white p-6 rounded-md shadow-md text-blue-500">
-                <p className="text-xl font-semibold">Driver Information</p>
-                <hr className="my-4" />
+        <div className="bg-gray-900 text-white min-h-screen p-6 flex flex-col gap-4">
+            <h2 className="text-2xl font-semibold">Driver Details</h2>
+            <div className="bg-white p-4 rounded-md shadow-md text-blue-500">
+                <p className="text-lg font-semibold">Driver Information</p>
+                <hr className="my-2" />
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-2">
                     <div>
-                        <p className="text-gray-600">First Name:</p>
-                        <p className="text-xl">{driver.first_name}</p>
+                        <p className="text-gray-600 font-semibold">First Name:</p>
+                        <p className="text-base">{driver.first_name}</p>
                     </div>
                     <div>
-                        <p className="text-gray-600">Middle Name:</p>
-                        <p className="text-xl">{driver.middle_name}</p>
+                        <p className="text-gray-600 font-semibold">Middle Name:</p>
+                        <p className="text-base">{driver.middle_name}</p>
                     </div>
                     <div>
-                        <p className="text-gray-600">Last Name:</p>
-                        <p className="text-xl">{driver.last_name}</p>
+                        <p className="text-gray-600 font-semibold">Last Name:</p>
+                        <p className="text-base">{driver.last_name}</p>
                     </div>
                     <div>
-                        <p className="text-gray-600">Date of Birth:</p>
-                        <p className="text-xl">{driver.date_of_birth}</p>
+                        <p className="text-gray-600 font-semibold">Date of Birth:</p>
+                        <p className="text-base">{driver.date_of_birth}</p>
                     </div>
                     <div>
-                        <p className="text-gray-600">Document Type:</p>
-                        <p className="text-xl">{driver.document_type}</p>
+                        <p className="text-gray-600 font-semibold">Document Type:</p>
+                        <p className="text-base">{driver.document_type}</p>
                     </div>
                     <div>
-                        <p className="text-gray-600">Document Number:</p>
-                        <p className="text-xl">{driver.document_number}</p>
+                        <p className="text-gray-600 font-semibold">Document Number:</p>
+                        <p className="text-base">{driver.document_number}</p>
                     </div>
                     <div>
-                        <p className="text-gray-600">MSISDN:</p>
-                        <p className="text-xl">{driver.msisdn}</p>
+                        <p className="text-gray-600 font-semibold">MSISDN:</p>
+                        <p className="text-base">{driver.msisdn}</p>
                     </div>
                     <div>
-                        <p className="text-gray-600">Email:</p>
-                        <p className="text-xl">{driver.email}</p>
+                        <p className="text-gray-600 font-semibold">Email:</p>
+                        <p className="text-base">{driver.email}</p>
                     </div>
                 </div>
             </div>
 
-            <div className="bg-white p-6 rounded-md shadow-md mt-4">
-                <p className="text-xl font-semibold">Partner Information</p>
-                <hr className="my-4" />
+            <div className="bg-white p-4 rounded-md shadow-md">
+  <p className="text-lg font-semibold text-blue-500">Partner Information</p>
+  <hr className="my-2" />
 
-                <div className="grid grid-cols-2 gap-4">
-                    <div>
-                        <p className="text-gray-600">First Name:</p>
-                        <p className="text-xl">{driver.partner_first_name}</p>
-                    </div>
-                    <div>
-                        <p className="text-gray-600">Last Name:</p>
-                        <p className="text-xl">{driver.partner_last_name}</p>
-                    </div>
-                </div>
-            </div>
+  <div className="flex justify-between">
+    <div className="flex-grow">
+      <p className="text-gray-600 font-semibold">First Name:</p>
+      <p className={`text-base ${partner.first_name ? 'text-blue-500' : ''}`}>
+        {partner.first_name}
+      </p>
+    </div>
+    <div className="flex-grow">
+      <p className="text-gray-600 font-semibold">Middle Name:</p>
+      <p className={`text-base ${partner.middle_name ? 'text-blue-500' : ''}`}>
+        {partner.middle_name}
+      </p>
+    </div>
+    <div className="flex-grow">
+      <p className="text-gray-600 font-semibold">Last Name:</p>
+      <p className={`text-base ${partner.last_name ? 'text-blue-500' : ''}`}>
+        {partner.last_name}
+      </p>
+    </div>
+  </div>
+</div>
 
-            <div className="mt-4">
+
+            <div className="mt-4 space-x-2">
                 <Link
-                    to={`/edit/driver/${id}`} // Updated path for driver update
-                    className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 mr-2"
+                    to={`/edit/driver/${id}`}
+                    className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
                     style={{ textDecoration: 'none' }}
                 >
                     Edit

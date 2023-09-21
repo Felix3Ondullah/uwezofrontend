@@ -20,8 +20,9 @@ function Sidebar() {
             <li>
               <Link
                 to="/"
-                className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${location.pathname === '/' ? 'text-white' : 'hover:text-white'
-                  }`}
+                className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${
+                  location.pathname === '/' ? 'text-white' : 'hover:text-white'
+                }`}
               >
                 <span className="text-base">Home</span>
               </Link>
@@ -29,8 +30,9 @@ function Sidebar() {
             <li>
               <Link
                 to="/contracts"
-                className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${location.pathname === '/contracts' ? 'text-white' : 'hover:text-white'
-                  }`}
+                className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${
+                  location.pathname === '/contracts' ? 'text-white' : 'hover:text-white'
+                }`}
               >
                 <span className="text-base">Contracts</span>
               </Link>
@@ -38,8 +40,9 @@ function Sidebar() {
             <li>
               <Link
                 to="/driverreg"
-                className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${location.pathname === '/driverreg' ? 'text-white' : 'hover:text-white'
-                  }`}
+                className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${
+                  location.pathname === '/driverreg' ? 'text-white' : 'hover:text-white'
+                }`}
               >
                 <span className="text-base">Driver</span>
               </Link>
@@ -47,8 +50,9 @@ function Sidebar() {
             <li>
               <Link
                 to="/mobilepayment"
-                className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${location.pathname === '/mobilepayment' ? 'text-white' : 'hover:text-white'
-                  }`}
+                className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${
+                  location.pathname === '/mobilepayment' ? 'text-white' : 'hover:text-white'
+                }`}
               >
                 <span className="text-base">Mobile Payments</span>
               </Link>
@@ -58,8 +62,9 @@ function Sidebar() {
                 {({ open }) => (
                   <>
                     <Disclosure.Button
-                      className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${location.pathname.includes('/partner') ? 'text-white' : 'hover:text-white'
-                        }`}
+                      className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${
+                        location.pathname.includes('/partner') ? 'text-white' : 'hover:text-white'
+                      }`}
                     >
                       <span className="text-base">Partner</span>
                       <span>{open ? '▲' : '▼'}</span>
@@ -69,8 +74,9 @@ function Sidebar() {
                         <li>
                           <Link
                             to="/partnerreg"
-                            className={`flex justify-start items-center gap-4 pl-10 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${location.pathname === '/partnerreg' ? 'text-white' : 'hover:text-white'
-                              }`}
+                            className={`flex justify-start items-center gap-4 pl-10 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${
+                              location.pathname === '/partnerreg' ? 'text-white' : 'hover:text-white'
+                            }`}
                           >
                             <span className="text-base">Partners Registration</span>
                           </Link>
@@ -78,8 +84,9 @@ function Sidebar() {
                         <li>
                           <Link
                             to="/partnerlist"
-                            className={`flex justify-start items-center gap-4 pl-10 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${location.pathname === '/partnerlist' ? 'text-white' : 'hover:text-white'
-                              }`}
+                            className={`flex justify-start items-center gap-4 pl-10 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${
+                              location.pathname === '/partnerlist' ? 'text-white' : 'hover:text-white'
+                            }`}
                           >
                             <span className="text-base">Partner List</span>
                           </Link>
@@ -87,8 +94,9 @@ function Sidebar() {
                         <li>
                           <Link
                             to="/partnerdetails/:id"
-                            className={`flex justify-start items-center gap-4 pl-10 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${location.pathname === '/partnerdetails/:id' ? 'text-white' : 'hover:text-white'
-                              }`}
+                            className={`flex justify-start items-center gap-4 pl-10 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${
+                              location.pathname === '/partnerdetails/:id' ? 'text-white' : 'hover:text-white'
+                            }`}
                           >
                             <span className="text-base">Partner Details</span>
                           </Link>
