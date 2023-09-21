@@ -30,7 +30,7 @@ function PartnerList() {
             <th className="text-left border border-gray-300 px-4 py-2">Name</th>
             <th className="text-left border border-gray-300 px-4 py-2">Email</th>
             <th className="text-left border border-gray-300 px-4 py-2">Msisdn</th>
-            <th className="text-left border border-gray-300 px-4 py-2">Actions</th>
+            <th className="text-left border border-gray-300 px-4 py-2">Details</th>
           </tr>
         </thead>
         <tbody>
