@@ -45,7 +45,7 @@ function DriverReg() {
       .then((data) => {
         console.log('Fetched partner data:', data);
         setPartnerOptions(
-          data.map((partner) => ({ value: partner.id, label: partner.name }))
+          data.map((partner) => ({ value: partner.id, label: `${partner.first_name} ${partner.middle_name} ${partner.last_name}` }))
         );
       })
       .catch((error) => {
