@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './Components/Sidebar';
 import Home from './Components/Home';
 import Contracts from './Components/Contracts';
-import Driver from './Components/Driver/Driver';
+import Driver from './Components/Driver/Driverreg';
 import MobilePayments from './Components/MobilePayment';
 import PartnerReg from './Components/Partners/PartnerReg';
 import PartnerList from './Components/Partners/PartnerList';

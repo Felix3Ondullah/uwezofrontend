@@ -1,5 +1,4 @@
-// src/components/Home.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function DriverReg() {
@@ -15,8 +14,11 @@ function DriverReg() {
     msisdn: '',
     email: '',
     document: '',
-    status: 'active', // Default status as 'active'
+    status: 'active',
+    partner: '', 
   });
+
+  const [partnerOptions, setPartnerOptions] = useState([]);
 
   const statusOptions = [
     { value: 'active', label: 'Active' },
@@ -29,6 +31,18 @@ function DriverReg() {
     { value: 'passport', label: 'Passport' },
     { value: 'military_id', label: 'Military ID' },
   ];
+
+  useEffect(() => {
+    // Fetching partners from API
+    fetch('http://35.227.55.58:8002/partner/')
+      .then((response) => response.json())
+      .then((data) => {
+        setPartnerOptions(data.map((partner) => ({ value: partner.id, label: partner.name })));
+      })
+      .catch((error) => {
+        console.error('Error fetching partners:', error);
+      });
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,7 +58,7 @@ function DriverReg() {
     console.log('Sending data:', driverData);
 
     // Sending a POST request to driver API
-    fetch('http://your-api-endpoint/driver/', {
+    fetch('http://35.227.55.58:8002/driver/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -217,7 +231,30 @@ function DriverReg() {
               ))}
             </select>
           </div>
-          {/* You can add other fields here as needed */}
+          <div className="mb-4">
+            <label htmlFor="partner" className="block text-sm font-medium">
+              Partner
+            </label>
+            <select
+        id="partner"
+        name="partner"
+        value={driverData.partner}
+        onChange={handleChange}
+        className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-2 rounded-md text-black bg-white"
+    >
+        <option value="" className="text-black bg-white">Select a partner</option>
+        {partnerOptions.map((option) => (
+            <option
+                key={option.value}
+                value={option.value}
+                className="text-black bg-white border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
+            >
+                {option.label}
+            </option>
+        ))}
+    </select>
+          </div>
+          
         </div>
         <div className="mt-4">
           <button
@@ -228,9 +265,9 @@ function DriverReg() {
           </button>
         </div>
       </form>
-
     </div>
   );
 }
 
 export default DriverReg;
+
