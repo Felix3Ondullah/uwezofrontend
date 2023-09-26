@@ -53,7 +53,7 @@ function Sidebar() {
                       <ul>
                         <li>
                           <Link
-                            to="/partnerreg"
+                            to="/driverreg"
                             className={`flex justify-start items-center gap-4 pl-10 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${
                               location.pathname === '/driverreg' ? 'text-white' : 'hover:text-white'
                             }`}
@@ -63,7 +63,7 @@ function Sidebar() {
                         </li>
                         <li>
                           <Link
-                            to="/partnerlist"
+                            to="/driverlist"
                             className={`flex justify-start items-center gap-4 pl-10 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${
                               location.pathname === '/driverlist' ? 'text-white' : 'hover:text-white'
                             }`}
@@ -73,12 +73,62 @@ function Sidebar() {
                         </li>
                         <li>
                           <Link
-                            to="/partnerdetails/:id"
+                            to="/driverdetails/:id"
                             className={`flex justify-start items-center gap-4 pl-10 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${
                               location.pathname === '/driverdetails/:id' ? 'text-white' : 'hover:text-white'
                             }`}
                           >
                             <span className="text-base">Driver Details</span>
+                          </Link>
+                        </li>
+                      </ul>
+                    </Disclosure.Panel>
+                  </>
+                )}
+              </Disclosure>
+            </li>
+            <li>
+              <Disclosure>
+                {({ open }) => (
+                  <>
+                    <Disclosure.Button
+                      className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${
+                        location.pathname.includes('/driver') ? 'text-white' : 'hover:text-white'
+                      }`}
+                    >
+                      <span className="text-base">Vehcile</span>
+                      <span>{open ? '▲' : '▼'}</span>
+                    </Disclosure.Button>
+                    <Disclosure.Panel>
+                      <ul>
+                        <li>
+                          <Link
+                            to="/vehiclereg"
+                            className={`flex justify-start items-center gap-4 pl-10 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${
+                              location.pathname === '/vehiclereg' ? 'text-white' : 'hover:text-white'
+                            }`}
+                          >
+                            <span className="text-base">Vehcile Registration</span>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/vehiclelist"
+                            className={`flex justify-start items-center gap-4 pl-10 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${
+                              location.pathname === '/vehiclelist' ? 'text-white' : 'hover:text-white'
+                            }`}
+                          >
+                            <span className="text-base">Vehicle List</span>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/vehicledetails/:id"
+                            className={`flex justify-start items-center gap-4 pl-10 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${
+                              location.pathname === '/vehicledetails/:id' ? 'text-white' : 'hover:text-white'
+                            }`}
+                          >
+                            <span className="text-base">Vehicle Details</span>
                           </Link>
                         </li>
                       </ul>
