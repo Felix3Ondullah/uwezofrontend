@@ -13,6 +13,10 @@ import DriverList from './Components/Driver/DriverList';
 import DriverDetails from './Components/Driver/DriverDetails';
 import DriverReg from './Components/Driver/Driverreg';
 import DriverUpdate from './Components/Driver/DriverUpdate';
+import VehicleReg from './Components/Vehicle/VehicleReg';
+import VehicleDetails from './Components/Vehicle/VehicleDetails';
+import VehicleList from './Components/Vehicle/VehicleList';
+import VehicleUpdate from './Components/Vehicle/VehicleUpdate';
 
 function App() {
   return (
@@ -32,6 +36,10 @@ function App() {
             <Route path="/partnerlist" element={<PartnerList />} />
             <Route path="/partnerdetails/:id" element={<PartnerDetails />} />
             <Route path="/edit/partner/:id" element={<PartnerUpdate />} />
+            <Route path="/vehiclereg" element={<VehicleReg />} />
+            <Route path= "/vehicledetails/:id" element={<VehicleDetails />} />
+            <Route path="/vehiclelist" element={<VehicleList />} />
+            <Route path= "/edit/vehicle/:id"  element={<VehicleUpdate />} />
           </Routes>
         </div>
       </div>
