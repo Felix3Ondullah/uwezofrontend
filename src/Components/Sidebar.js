@@ -38,14 +38,54 @@ function Sidebar() {
               </Link>
             </li>
             <li>
-              <Link
-                to="/driverreg"
-                className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${
-                  location.pathname === '/driverreg' ? 'text-white' : 'hover:text-white'
-                }`}
-              >
-                <span className="text-base">Driver</span>
-              </Link>
+              <Disclosure>
+                {({ open }) => (
+                  <>
+                    <Disclosure.Button
+                      className={`flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${
+                        location.pathname.includes('/driver') ? 'text-white' : 'hover:text-white'
+                      }`}
+                    >
+                      <span className="text-base">Driver</span>
+                      <span>{open ? '▲' : '▼'}</span>
+                    </Disclosure.Button>
+                    <Disclosure.Panel>
+                      <ul>
+                        <li>
+                          <Link
+                            to="/partnerreg"
+                            className={`flex justify-start items-center gap-4 pl-10 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${
+                              location.pathname === '/driverreg' ? 'text-white' : 'hover:text-white'
+                            }`}
+                          >
+                            <span className="text-base">Driver Registration</span>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/partnerlist"
+                            className={`flex justify-start items-center gap-4 pl-10 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${
+                              location.pathname === '/driverlist' ? 'text-white' : 'hover:text-white'
+                            }`}
+                          >
+                            <span className="text-base">Driver List</span>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/partnerdetails/:id"
+                            className={`flex justify-start items-center gap-4 pl-10 hover:bg-gray-800 p-2 rounded-md group cursor-pointer ${
+                              location.pathname === '/driverdetails/:id' ? 'text-white' : 'hover:text-white'
+                            }`}
+                          >
+                            <span className="text-base">Driver Details</span>
+                          </Link>
+                        </li>
+                      </ul>
+                    </Disclosure.Panel>
+                  </>
+                )}
+              </Disclosure>
             </li>
             <li>
               <Link
@@ -107,7 +147,6 @@ function Sidebar() {
                 )}
               </Disclosure>
             </li>
-            {/* Add more navigation links here */}
           </ul>
         </div>
       </Disclosure>
