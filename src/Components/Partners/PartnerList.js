@@ -27,10 +27,10 @@ function PartnerList() {
       <table className="min-w-full table-auto border-collapse border border-gray-300">
         <thead>
           <tr>
-            <th className="text-left border border-gray-300 px-4 py-2">Name</th>
-            <th className="text-left border border-gray-300 px-4 py-2">Email</th>
-            <th className="text-left border border-gray-300 px-4 py-2">Msisdn</th>
-            <th className="text-left border border-gray-300 px-4 py-2">Details</th>
+            <th className="text-left border border-gray-300 px-2 py-1">Name</th>
+            <th className="text-left border border-gray-300 px-2 py-1">Email</th>
+            <th className="text-left border border-gray-300 px-2 py-1">Msisdn</th>
+            <th className="text-left border border-gray-300 px-2 py-1">Details</th>
           </tr>
         </thead>
         <tbody>
@@ -39,16 +39,16 @@ function PartnerList() {
               key={partner.id}
               className="bg-white border border-gray-300"
             >
-              <td className="text-lg text-gray-600 border border-gray-300 px-4 py-2">
+              <td className="text-lg text-gray-600 border border-gray-300 px-2 py-1">
                 {partner.first_name} {partner.middle_name} {partner.last_name}
               </td>
-              <td className="text-lg text-gray-600 border border-gray-300 px-4 py-2">
+              <td className="text-lg text-gray-600 border border-gray-300 px-2 py-1">
                 <span className="text-blue-500">{partner.email}</span>
               </td>
-              <td className="text-lg text-gray-600 border border-gray-300 px-4 py-2">
+              <td className="text-lg text-gray-600 border border-gray-300 px-2 py-1">
                 <span className="text-blue-500">{partner.msisdn}</span>
               </td>
-              <td className="border border-gray-300 px-4 py-2">
+              <td className="border border-gray-300 px-2 py-1">
                 <Link to={`/partnerdetails/${partner.id}`} className="text-blue-500 hover:underline">
                   View
                 </Link>
@@ -60,7 +60,7 @@ function PartnerList() {
       <div className="mt-4">
         <Link to="/partnerreg">
           <button
-            className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+            className="bg-blue-500 text-white px-2 py-1rounded-md hover:bg-blue-600"
           >
             Register Partner
           </button>
