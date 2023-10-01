@@ -96,7 +96,7 @@ function Sidebar() {
                         location.pathname.includes('/driver') ? 'text-white' : 'hover:text-white'
                       }`}
                     >
-                      <span className="text-base">Vehcile</span>
+                      <span className="text-base"> Vehicle </span>
                       <span>{open ? '▲' : '▼'}</span>
                     </Disclosure.Button>
                     <Disclosure.Panel>
@@ -108,7 +108,7 @@ function Sidebar() {
                               location.pathname === '/vehiclereg' ? 'text-white' : 'hover:text-white'
                             }`}
                           >
-                            <span className="text-base">Vehcile Registration</span>
+                            <span className="text-base">Vehicle Registration</span>
                           </Link>
                         </li>
                         <li>
